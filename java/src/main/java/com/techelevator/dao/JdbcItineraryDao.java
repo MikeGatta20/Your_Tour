@@ -2,9 +2,12 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Itinerary;
+import com.techelevator.model.User;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -53,12 +56,39 @@ public class JdbcItineraryDao implements ItineraryDao{
 
     @Override
     public Itinerary createItinerary(Itinerary itinerary) {
-        return null;
+        Itinerary newItinerary = null;
+        String sql = "INSERT INTO itineraries (name, starting_location, start_date, start_time) values (?, ?, ?, ?) RETURNING itinerary_id";
+        try {
+            int newItineraryId = template.queryForObject(sql, int.class, itinerary.getName(), itinerary.getStartingLocation(), itinerary.getDate(), itinerary.getTime());
+            itinerary.setItineraryId(newItineraryId);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+        return itinerary;
     }
 
     @Override
     public Itinerary updateItinerary(Itinerary itinerary) {
-        return null;
+        Itinerary updateItinerary = null;
+        String sql = "UPDATE itineraries"+
+        "SET name = ?, starting_location = ?, start_date = ?, start_time?" +
+                "WHERE itinerary_id = ?;";
+        try {
+            int newItineraryId = template.queryForObject(sql, int.class, itinerary.getName(), itinerary.getStartingLocation(), itinerary.getDate(), itinerary.getTime());
+            if (newItineraryId == 0) {
+                throw new DaoException("Zero rows affected, expected at least one.");
+            } else {
+                updateItinerary = getMyItinerary(itinerary.getItineraryId());
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }catch (DataIntegrityViolationException e){
+            throw new DaoException("Data Integrity Violation", e);
+        }
+
+        return updateItinerary;
     }
 
     private Itinerary mapRowToItinerary(SqlRowSet results) {

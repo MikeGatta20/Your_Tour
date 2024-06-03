@@ -14,5 +14,9 @@ public interface ItineraryDao {
   Itinerary createItinerary(Itinerary itinerary);
   Itinerary updateItinerary(Itinerary itinerary);
 
+  //Itinerary getItineraryByUserId(Itinerary itinerary);
+ // Itinerary deleteItineraryById( Itinerary itinerary);
+
+
 
 }
