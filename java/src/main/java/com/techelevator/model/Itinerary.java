@@ -1,6 +1,8 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Itinerary {
 
@@ -8,13 +10,15 @@ public class Itinerary {
     private String name;
     private String startingLocation;
 
-    private LocalDateTime dateTime;
+    private LocalDate date;
+    private LocalTime time;
 
-    public Itinerary(int itineraryId, String name, String startingLocation, LocalDateTime dateTime) {
+    public Itinerary(int itineraryId, String name, String startingLocation, LocalDate date,LocalTime time) {
         this.itineraryId = itineraryId;
         this.name = name;
         this.startingLocation = startingLocation;
-        this.dateTime = dateTime;
+        this.date = date;
+        this.time=time;
     }
 
     public int getItineraryId() {
@@ -41,11 +45,19 @@ public class Itinerary {
         this.startingLocation = startingLocation;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
     }
 }

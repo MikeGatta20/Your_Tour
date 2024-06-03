@@ -9,16 +9,24 @@ public class Landmark {
     private int houseNumber;
     private int zipCode;
     private String city;
-    private String state;
+    private String stateName;
+    private String availableHours;
+    private String category;
+    private String description;
+    private String landmarkImage;
 
-    public Landmark(int landmarkId, String landmarkName, String streetName, int houseNumber, int zipCode, String city, String state) {
+    public Landmark(int landmarkId, String landmarkName, String streetName, int houseNumber, int zipCode, String city, String stateName, String availableHours, String category, String description, String landmarkImage) {
         this.landmarkId = landmarkId;
         this.landmarkName = landmarkName;
-        this.streetName = streetName;
         this.houseNumber = houseNumber;
-        this.zipCode = zipCode;
+        this.streetName = streetName;
         this.city = city;
-        this.state = state;
+        this.stateName = stateName;
+        this.zipCode = zipCode;
+        this.availableHours = availableHours;
+        this.category = category;
+        this.description = description;
+        this.landmarkImage = landmarkImage;
     }
 
     public int getLandmarkId() {
@@ -70,10 +78,42 @@ public class Landmark {
     }
 
     public String getState() {
-        return state;
+        return stateName;
     }
 
     public void setState(String state) {
-        this.state = state;
+        this.stateName = stateName;
+    }
+
+    public String getAvailability() {
+        return availableHours;
+    }
+
+    public void setAvailability(String availability) {
+        this.availableHours = availableHours;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImages() {
+        return landmarkImage;
+    }
+
+    public void setImages(String images) {
+        this.landmarkImage = landmarkImage;
     }
 }
