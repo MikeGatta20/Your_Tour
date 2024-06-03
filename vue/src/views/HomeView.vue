@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You are authenticated if you see this.</p>
+    <h1>Plan Your Tour!</h1>
     <SearchCriteria/>
   </div>
 </template>
