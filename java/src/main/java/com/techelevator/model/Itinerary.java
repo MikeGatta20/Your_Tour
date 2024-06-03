@@ -21,6 +21,10 @@ public class Itinerary {
         this.time=time;
     }
 
+    public Itinerary() {
+
+    }
+
     public int getItineraryId() {
         return itineraryId;
     }
