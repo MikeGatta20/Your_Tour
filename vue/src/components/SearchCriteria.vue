@@ -2,8 +2,10 @@
     <div>
         <form>
            <div>
-            <label for="start-address">What is your starting point?</label>
-            <input type="text" name="start-address">
+            <p>
+                Your starting point: 
+                1228 Sherbrooke St W, Montreal, Quebec
+            </p>
            </div>
             <div>
                 <label for="distance">How many miles would you like to travel?</label>
