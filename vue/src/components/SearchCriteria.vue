@@ -16,11 +16,11 @@
                 <input type="date" name="date">
             </div>
             <div>
-                <label for="start-time">What is your start time?</label>
+                <label for="start-time">When is your start time?</label>
                 <input type="time" name="start-time">
             </div>
             <div>
-                <label for="end-time">What is your end time?</label>
+                <label for="end-time">When is your end time?</label>
                 <input type="time" name="end-time">
             </div>
             
