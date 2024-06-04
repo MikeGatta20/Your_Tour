@@ -13,6 +13,8 @@ public interface ItineraryDao {
   Itinerary getMyItinerary(int itineraryId);
   Itinerary createItinerary(Itinerary itinerary);
   Itinerary updateItinerary(Itinerary itinerary);
+  List<Itinerary> getItinerariesByUserId(int userId);
+  Itinerary createItineraryByUserId(int userId, Itinerary itinerary);
 
   //Itinerary getItineraryByUserId(Itinerary itinerary);
  // Itinerary deleteItineraryById( Itinerary itinerary);
