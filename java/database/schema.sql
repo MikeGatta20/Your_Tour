@@ -23,11 +23,12 @@ create TABLE landmarks(
     CONSTRAINT pk_landmark PRIMARY KEY (landmark_id)
 );
 
-CREATE TABLE Schedule (
+CREATE TABLE schedule (
     schedule_id SERIAL PRIMARY KEY,
-    landmark_id INT NOT NULL UNIQUE,
+    landmark_id INT NOT NULL,
     day_of_week VARCHAR(20),
-    time_range VARCHAR(50),
+    open_time TIME,
+    close_time TIME,
     CONSTRAINT fk_landmark_id FOREIGN KEY (landmark_id) REFERENCES landmarks(landmark_id)
 );
 
