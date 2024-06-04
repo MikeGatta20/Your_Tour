@@ -43,7 +43,8 @@
             {   id: 1,
                 name: "Montreal Museum of Fine Arts",
                 description: "The Montreal Museum of Fine Arts (MMFA) is the oldest art museum in Canada, with a collection of over 44,000 works.",
-                distance: 2.5, 
+                distance: 2.5,
+                address: "567 north street", 
                 isOpen: true,
                 startTime: "10:00 AM",
                 endTime: "6:00 PM",
@@ -55,6 +56,7 @@
                 name: "Montreal Biodome",
                 description: "The Montreal Biodome is a facility located at Olympic Park in Montreal, Canada, that allows visitors to walk through replicas of four ecosystems found in the Americas.",
                 distance: 4.0,
+                address: "123 main street",
                 isOpen: true,
                 startTime: "9:00 AM",
                 endTime: "5:00 PM",
@@ -66,6 +68,7 @@
                 name: "Notre-Dame Basilica",
                 description: "Notre-Dame Basilica is a basilica in the historic district of Old Montreal. The interior of the church is among the most dramatic in the world and regarded as a masterpiece of Gothic Revival architecture.",
                 distance: 0.8,
+                address: "some made up address",
                 isOpen: false,
                 startTime: "9:00 AM",
                 endTime: "4:00 PM",
@@ -80,7 +83,8 @@ methods: {
         this.filteredLandmarks = this.landmarks.filter(landmark => {
             return landmark.distance <= this.distance &&
                landmark.startTime >= this.startTime &&
-               landmark.endTime <= this.endTime; 
+               landmark.endTime <= this.endTime && 
+               landmark.isOpen; 
         })
     }
 }

@@ -14,12 +14,7 @@ CREATE TABLE users (
 create TABLE landmarks(
     landmark_id SERIAL,
     landmark_name varchar(50) NOT NULL UNIQUE,
-	house_number varchar(15),
-    street_name varchar(50) NOT NULL,
-	city varchar(50) NOT NULL,
-    state_name varchar(50) NOT NULL,
-	zip_code varchar(10) NOT NULL,
-	available_hours timestamp NOT NULL,
+	address varchar(100) NOT NULL,
 	category varchar(50) NOT NULL,
 	description varchar (500) NOT NULL,
 	landmark_image varchar (100) NOT NULL,
@@ -27,6 +22,17 @@ create TABLE landmarks(
 
     CONSTRAINT pk_landmark PRIMARY KEY (landmark_id)
 );
+
+CREATE TABLE Schedule (
+    schedule_id SERIAL PRIMARY KEY,
+    landmark_id INT NOT NULL UNIQUE,
+    day_of_week VARCHAR(20),
+    time_range VARCHAR(50),
+    CONSTRAINT fk_landmark_id FOREIGN KEY (landmark_id) REFERENCES landmarks(landmark_id)
+);
+
+
+
 create TABLE itineraries(
     itinerary_id SERIAL,
     name varchar(50) NOT NULL UNIQUE ,
@@ -52,5 +58,7 @@ create TABLE itinerary_landmarks(
 	CONSTRAINT fk_landmark_id FOREIGN KEY (landmark_id) REFERENCES landmarks (landmark_id)
 
 );
+
+
 
 COMMIT TRANSACTION;

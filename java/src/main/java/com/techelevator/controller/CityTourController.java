@@ -32,10 +32,16 @@ public class CityTourController {
         this.landmarkDao = landmarkDao;
     }
 
-    @RequestMapping(path = "/search/{name}", method = RequestMethod.GET)
-    public List<Landmark> Landmark(String name) {
+    @RequestMapping(path = "/search/name/{name}", method = RequestMethod.GET)
+    public List<Landmark> Landmark(@PathVariable String name) {
 
         return landmarkDao.getLandmarkByName(name);
+    }
+
+    @RequestMapping(path = "/search/category/{category}", method = RequestMethod.GET)
+    public List<Landmark> Category(@PathVariable String category) {
+
+        return landmarkDao.getLandmarkByCategory(category);
     }
 }
 
