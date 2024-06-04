@@ -23,6 +23,7 @@ create TABLE landmarks(
 	category varchar(50) NOT NULL,
 	description varchar (500) NOT NULL,
 	landmark_image varchar (100) NOT NULL,
+	distance decimal NOT NULL,
 
     CONSTRAINT pk_landmark PRIMARY KEY (landmark_id)
 );
@@ -51,4 +52,5 @@ create TABLE itinerary_landmarks(
 	CONSTRAINT fk_landmark_id FOREIGN KEY (landmark_id) REFERENCES landmarks (landmark_id)
 
 );
+
 COMMIT TRANSACTION;

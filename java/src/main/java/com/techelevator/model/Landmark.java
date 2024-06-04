@@ -14,8 +14,9 @@ public class Landmark {
     private String category;
     private String description;
     private String landmarkImage;
+    private Double distance;
 
-    public Landmark(int landmarkId, String landmarkName, String streetName, int houseNumber, int zipCode, String city, String stateName, String availableHours, String category, String description, String landmarkImage) {
+    public Landmark(int landmarkId, String landmarkName, String streetName, int houseNumber, int zipCode, String city, String stateName, String availableHours, String category, String description, String landmarkImage, Double distance) {
         this.landmarkId = landmarkId;
         this.landmarkName = landmarkName;
         this.houseNumber = houseNumber;
@@ -27,6 +28,11 @@ public class Landmark {
         this.category = category;
         this.description = description;
         this.landmarkImage = landmarkImage;
+        this.distance = distance;
+    }
+
+    public Landmark() {
+
     }
 
     public int getLandmarkId() {
@@ -115,5 +121,13 @@ public class Landmark {
 
     public void setImages(String images) {
         this.landmarkImage = landmarkImage;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
     }
 }
