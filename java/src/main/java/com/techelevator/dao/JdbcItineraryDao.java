@@ -8,11 +8,12 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class JdbcItineraryDao implements ItineraryDao{
     private JdbcTemplate template;
     public JdbcItineraryDao(DataSource ds){
@@ -89,6 +90,16 @@ public class JdbcItineraryDao implements ItineraryDao{
         }
 
         return updateItinerary;
+    }
+
+    @Override
+    public List<Itinerary> getItinerariesByUserId(int userId) {
+        return null;
+    }
+
+    @Override
+    public Itinerary createItineraryByUserId(int userId, Itinerary itinerary) {
+        return null;
     }
 
     private Itinerary mapRowToItinerary(SqlRowSet results) {
