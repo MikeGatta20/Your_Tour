@@ -91,6 +91,16 @@ public class JdbcItineraryDao implements ItineraryDao{
         return updateItinerary;
     }
 
+    @Override
+    public List<Itinerary> getItinerariesByUserId(int userId) {
+        return null;
+    }
+
+    @Override
+    public Itinerary createItineraryByUserId(int userId, Itinerary itinerary) {
+        return null;
+    }
+
     private Itinerary mapRowToItinerary(SqlRowSet results) {
         Itinerary itinerary =new Itinerary();
         itinerary.setItineraryId(results.getInt("itinerary_id"));
