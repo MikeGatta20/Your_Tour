@@ -8,19 +8,21 @@
           <li v-for="(landmark, index) in landmarks" :key="index">
             <div class="landmark-item">
               <div class="landmark-info">
-                <h3>{{ landmark.landmarkName }}</h3>
-                <p>{{ landmark.address }}</p>
-                <p>{{ landmark.category }}</p>
-                <p>{{ landmark.description }}</p>
-                <p>Distance: {{ landmark.distance }}</p>
+                
+                <h3>{{ landmark.landmark.landmarkName }}</h3>
+                <p>{{ landmark.landmark.address }}</p>
+                <p>{{ landmark.landmark.category }}</p>
+                <p>{{ landmark.landmark.description }}</p>
+                <p>Distance: {{ landmark.landmark.distance }}</p>
               </div>
-              <img :src="landmark.images" alt="Image Not Found." > 
+              <img src={{ landmark.landmark.images }} alt="Image Not Found." > 
+              <p>Monday hours: {{ landmark.schedule.openTime}}</p>
             </div>
           </li>
         </ul>
       </div>
     </div>
-    <h2>Plan Your Tour!</h2>
+    <h2>Plan Your Tour !!</h2>
     <SearchCriteria :landmarks="landmarks"/>
   </div>
 </template>

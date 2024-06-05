@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Landmark;
+import com.techelevator.model.Schedule;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -19,4 +20,5 @@ public interface LandmarkDao {
     ArrayList<Landmark> getAvailableHours(LocalTime openTime, LocalTime closeTime, String dayOfWeek);
 
 
+    ArrayList<Schedule> getSchedulesForLandmark(int landmarkId);
 }
