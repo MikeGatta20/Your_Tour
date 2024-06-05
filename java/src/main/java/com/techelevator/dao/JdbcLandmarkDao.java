@@ -90,18 +90,14 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public ArrayList<Landmark> getAvailableHours(LocalTime openTime, LocalTime closeTime, String day) {
-        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address\n" +
-                "FROM landmarks\n" +
-                "JOIN schedule\n" +
-                "ON schedule.landmark_id = landmarks.landmark_id\n" +
-                "Where open_time <= ? \n" +
-                "And close_time <= ? \n" +
-                "And day_of_week = ?";
-        ;
-        ArrayList<Landmark> landmarks = new ArrayList<Landmark>();
+        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address " +
+                "FROM landmarks " +
+                "JOIN schedule ON schedule.landmark_id = landmarks.landmark_id " +
+                "WHERE open_time <= ? AND close_time >= ? AND day_of_week = ?";
+
+        ArrayList<Landmark> landmarks = new ArrayList<>();
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, openTime, closeTime, day);
-
             while (results.next()) {
                 Landmark landmark = mapRowToLandmark(results);
                 landmarks.add(landmark);
@@ -112,7 +108,6 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
         return landmarks;
     }
-
 
     public Landmark mapRowToLandmark(SqlRowSet results){
         /*
