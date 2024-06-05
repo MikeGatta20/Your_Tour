@@ -21,7 +21,7 @@
       </div>
     </div>
     <h2>Plan Your Tour!</h2>
-    <SearchCriteria/>
+    <SearchCriteria :landmarks="landmarks"/>
   </div>
 </template>
 
