@@ -16,7 +16,7 @@ public class Landmark {
     private Double distance;
     private LocalTime openTime;
     private LocalTime closeTime;
-    private String day;
+    private String dayOfWeek;
 
 
     public Landmark(int landmarkId, String landmarkName, String address, String category, String description, String landmarkImage, Double distance, LocalTime openTime, LocalTime closeTime, String day) {
@@ -29,7 +29,7 @@ public class Landmark {
         this.distance = distance;
         this.openTime = openTime;
         this.closeTime = closeTime;
-        this.day = day;
+        this.dayOfWeek = dayOfWeek;
     }
 
     public Landmark() {
@@ -109,11 +109,11 @@ public class Landmark {
         this.closeTime = closeTime;
     }
 
-    public String getDay() {
-        return day;
+    public String getDayOfWeek() {
+        return dayOfWeek;
     }
 
-    public void setDay(String day) {
-        this.day = day;
+    public void setDayOfWeek(String dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 }

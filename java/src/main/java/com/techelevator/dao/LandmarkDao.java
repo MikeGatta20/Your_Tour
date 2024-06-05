@@ -16,6 +16,7 @@ public interface LandmarkDao {
     //Landmark getLandmarkByAvailability(String availableHours);List<Landmark> get
     ArrayList<Landmark> getAllLandmarks();
 
-    ArrayList<Landmark> getOpenTime();
+    ArrayList<Landmark> getAvailableHours(LocalTime openTime, LocalTime closeTime, String dayOfWeek);
+
 
 }

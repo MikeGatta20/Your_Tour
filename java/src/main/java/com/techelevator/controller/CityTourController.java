@@ -51,11 +51,13 @@ public class CityTourController {
         return landmarkDao.getAllLandmarks();
     }
 
-    @RequestMapping(path = "/search/openTime", method = RequestMethod.GET)
-    public List<Landmark> openTime () {
-        return landmarkDao.getOpenTime();
+    @RequestMapping(path = "/search/availableHours/{open_time}/{close_time}/{day_of_week}", method = RequestMethod.GET)
+    public List<Landmark> availableHours(
+            @PathVariable("open_time") LocalTime openTime,
+            @PathVariable("close_time") LocalTime closeTime,
+            @PathVariable("day_of_week") String dayOfWeek
+    ) {
+        return landmarkDao.getAvailableHours(openTime, closeTime, dayOfWeek);
     }
-
-
 }
 
