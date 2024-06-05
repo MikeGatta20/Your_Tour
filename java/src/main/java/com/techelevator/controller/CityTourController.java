@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -47,6 +49,11 @@ public class CityTourController {
     public List<Landmark> allLandmarks () {
 
         return landmarkDao.getAllLandmarks();
+    }
+
+    @RequestMapping(path = "/search/openTime", method = RequestMethod.GET)
+    public List<Landmark> openTime () {
+        return landmarkDao.getOpenTime();
     }
 
 
