@@ -41,12 +41,30 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     @Override
-    public List<Landmark> getLandmarkByCategory(String category) {
+    public ArrayList<Landmark> getLandmarkByCategory(String category) {
         String sql = "SELECT landmark_name, category, description, distance, address FROM landmarks WHERE category ILIKE ?; ";
 
         ArrayList<Landmark> landmarks = new ArrayList<Landmark>();
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%" + category + "%");
+
+            while (results.next()) {
+                Landmark landmark = mapRowToLandmark(results);
+                landmarks.add(landmark);
+            }
+        } catch (NullPointerException e) {
+            throw new DaoException("NullPointerException", e);
+        }
+
+        return landmarks;
+    }
+
+    @Override
+    public ArrayList<Landmark> getAllLandmarks() {
+        String sql = "SELECT landmark_name, category, description, distance, address FROM landmarks;";
+        ArrayList<Landmark> landmarks = new ArrayList<Landmark>();
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
             while (results.next()) {
                 Landmark landmark = mapRowToLandmark(results);
@@ -79,6 +97,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         return landmark;
 
     }
+
 
 
 }
