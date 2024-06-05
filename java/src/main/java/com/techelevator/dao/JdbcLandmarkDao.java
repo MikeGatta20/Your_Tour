@@ -25,7 +25,10 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public ArrayList<Landmark> getLandmarkByName(String name) {
-        String sql = "SELECT landmark_name, category, description, distance, address FROM landmarks WHERE landmark_name ILIKE ?; ";
+        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address FROM landmarks " +
+                "JOIN schedule \n" +
+                "ON schedule.landmark_id = landmarks.landmark_id \n" +
+                "WHERE landmark_name ILIKE ?; ";
 
         ArrayList<Landmark> landmarks = new ArrayList<Landmark>();
         try {
@@ -45,7 +48,10 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public ArrayList<Landmark> getLandmarkByCategory(String category) {
-        String sql = "SELECT landmark_name, category, description, distance, address FROM landmarks WHERE category ILIKE ?; ";
+        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address FROM landmarks " +
+                "JOIN schedule \n" +
+                "ON schedule.landmark_id = landmarks.landmark_id \n" +
+                "WHERE category ILIKE ?; ";
 
         ArrayList<Landmark> landmarks = new ArrayList<Landmark>();
         try {
@@ -64,7 +70,9 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public ArrayList<Landmark> getAllLandmarks() {
-        String sql = "SELECT landmark_name, category, description, distance, address FROM landmarks;";
+        String sql = "SELECT landmark_name, category, description,open_time, close_time, day_of_week, distance, address FROM landmarks" +
+                " JOIN schedule \n" +
+                " ON schedule.landmark_id = landmarks.landmark_id ;";
         ArrayList<Landmark> landmarks = new ArrayList<Landmark>();
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -81,26 +89,28 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     @Override
-    public ArrayList<Landmark> getOpenTime() {
-        String sql = "SELECT *\n" +
+    public ArrayList<Landmark> getAvailableHours(LocalTime openTime, LocalTime closeTime, String day) {
+        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address\n" +
                 "FROM landmarks\n" +
                 "JOIN schedule\n" +
                 "ON schedule.landmark_id = landmarks.landmark_id\n" +
-                "where open_time >= ?\n" +
-                "and open_time <= ?;";
-        ArrayList<Landmark> openTime = new ArrayList<Landmark>();
+                "Where open_time <= ? \n" +
+                "And close_time <= ? \n" +
+                "And day_of_week = ?";
+        ;
+        ArrayList<Landmark> landmarks = new ArrayList<Landmark>();
         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, openTime, closeTime, day);
 
             while (results.next()) {
                 Landmark landmark = mapRowToLandmark(results);
-                openTime.add(landmark);
+                landmarks.add(landmark);
             }
         } catch (NullPointerException e) {
             throw new DaoException("NullPointerException", e);
         }
 
-        return openTime;
+        return landmarks;
     }
 
 
@@ -122,7 +132,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         landmark.setAddress(results.getString("address"));
         landmark.setOpenTime(results.getTime("open_time").toLocalTime());
         landmark.setCloseTime(results.getTime("close_time").toLocalTime());
-        landmark.setDay(results.getString("day"));
+        landmark.setDayOfWeek(results.getString("day_of_week"));
 
 
 
