@@ -43,5 +43,12 @@ public class CityTourController {
 
         return landmarkDao.getLandmarkByCategory(category);
     }
+    @RequestMapping(path = "/search/allLandmarks", method = RequestMethod.GET)
+    public List<Landmark> allLandmarks () {
+
+        return landmarkDao.getAllLandmarks();
+    }
+
+
 }
 

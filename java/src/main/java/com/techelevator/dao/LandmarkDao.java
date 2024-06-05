@@ -9,9 +9,8 @@ public interface LandmarkDao {
 
     ArrayList<Landmark> getLandmarkByName(String name);
 
-    List<Landmark> getLandmarkByCategory(String category);
+    ArrayList<Landmark> getLandmarkByCategory(String category);
 
-    //Landmark getLandmarkByAvailability(String availableHours);
-
-
+    //Landmark getLandmarkByAvailability(String availableHours);List<Landmark> get
+    ArrayList<Landmark> getAllLandmarks();
 }
