@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div>Hello</div>
     <div v-if="Object.keys(landmarks).length === 0">Loading landmarks...</div>
     <div v-else>
       <h1>Landmarks</h1>
@@ -15,7 +16,7 @@
                 <p>{{ landmark.landmark.description }}</p>
                 <p>Distance: {{ landmark.landmark.distance }}</p>
               </div>
-              <img src={{ landmark.landmark.images }} alt="Image Not Found." > 
+              
               <p>Monday hours: {{ landmark.schedule.openTime}}</p>
             </div>
           </li>
