@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Itinerary;
 import com.techelevator.model.Landmark;
+import com.techelevator.model.Schedule;
 import org.apache.tomcat.jni.Local;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -70,9 +71,9 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public ArrayList<Landmark> getAllLandmarks() {
-        String sql = "SELECT landmark_name, category, description,open_time, close_time, day_of_week, distance, address FROM landmarks" +
-                " JOIN schedule \n" +
-                " ON schedule.landmark_id = landmarks.landmark_id ;";
+        String sql = "SELECT landmark_name, category, description, distance, address FROM landmarks";
+
+
         ArrayList<Landmark> landmarks = new ArrayList<Landmark>();
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -109,6 +110,36 @@ public class JdbcLandmarkDao implements LandmarkDao {
         return landmarks;
     }
 
+    @Override
+    public ArrayList<Schedule> getSchedulesForLandmark(int landmarkId) {
+        String sql = "SELECT * FROM schedule WHERE landmark_id = ?";
+
+        ArrayList<Schedule> schedules = new ArrayList<>();
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landmarkId);
+
+            while (results.next()) {
+                Schedule schedule = mapRowToSchedule(results);
+                schedules.add(schedule);
+            }
+        } catch (NullPointerException e) {
+            throw new DaoException("NullPointerException", e);
+        }
+
+        return schedules;
+    }
+
+    private Schedule mapRowToSchedule(SqlRowSet results) {
+        Schedule schedule = new Schedule();
+        schedule.setOpenTime(results.getTime("open_time").toLocalTime());
+        schedule.setCloseTime(results.getTime("close_time").toLocalTime());
+        schedule.setDayOfWeek(results.getString("day_of_week"));
+        schedule.setLandmarkId(results.getInt("landmark_id"));
+
+        return schedule;
+    }
+
+
     public Landmark mapRowToLandmark(SqlRowSet results){
         /*
         name
@@ -125,9 +156,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
         landmark.setDescription(results.getString("description"));
         landmark.setDistance(results.getDouble("distance"));
         landmark.setAddress(results.getString("address"));
-        landmark.setOpenTime(results.getTime("open_time").toLocalTime());
-        landmark.setCloseTime(results.getTime("close_time").toLocalTime());
-        landmark.setDayOfWeek(results.getString("day_of_week"));
+
+
 
 
 

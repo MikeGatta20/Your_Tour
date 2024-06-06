@@ -2,10 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.LandmarkDao;
 import com.techelevator.exception.DaoException;
-import com.techelevator.model.Landmark;
-import com.techelevator.model.LoginDto;
-import com.techelevator.model.LoginResponseDto;
-import com.techelevator.model.User;
+import com.techelevator.model.*;
 import com.techelevator.security.jwt.JWTFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -20,7 +17,10 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -46,9 +46,23 @@ public class CityTourController {
         return landmarkDao.getLandmarkByCategory(category);
     }
     @RequestMapping(path = "/search/allLandmarks", method = RequestMethod.GET)
-    public List<Landmark> allLandmarks () {
+    public List<Map<String, Object>> allLandmarks () {
+        List<Landmark> allLandmarks = landmarkDao.getAllLandmarks();
+        List<Map<String, Object>> landmarksWithSchedules = new ArrayList<>();
+        // extract out
+        int i = 1;
+        for (Landmark landmark : allLandmarks) {
+            landmark.setLandmarkId(i);
+            ArrayList<Schedule> schedules = landmarkDao.getSchedulesForLandmark(landmark.getLandmarkId());
+            Map<String, Object> landmarkMap = new HashMap<>();
+            landmarkMap.put("landmark", landmark);
+            landmarkMap.put("schedule", schedules);
+            landmarksWithSchedules.add(landmarkMap);
+            i++;
 
-        return landmarkDao.getAllLandmarks();
+        }
+
+        return landmarksWithSchedules;
     }
 
     @RequestMapping(path = "/search/availableHours/{open_time}/{close_time}/{day_of_week}", method = RequestMethod.GET)
