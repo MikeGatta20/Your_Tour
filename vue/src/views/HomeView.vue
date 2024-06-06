@@ -3,35 +3,10 @@
     <div v-if="Object.keys(landmarks).length === 0">Loading landmarks...</div>
     <div v-else>
       <h1>Landmarks</h1>
-      <div class="landmarks-menu">
-        <ul>
-          <li v-for="(landmark, index) in landmarks" :key="index">
-            <div class="landmark-item">
-              <div class="landmark-info">
-                <h3>{{ landmark.landmark.landmarkName }}</h3>
-                <p>{{ landmark.landmark.address }}</p>
-                <p>{{ landmark.landmark.category }}</p>
-                <p>{{ landmark.landmark.description }}</p>
-                <p>Distance: {{ landmark.landmark.distance }}</p>
-                <button @click="toggleSchedule(index)">
-                  {{ showScheduleIndex === index ? 'Hide Schedule' : 'Show Schedule' }}
-                </button>
-              </div>
-              <div v-if="showScheduleIndex === index" class="schedule">
-                <h4>Schedule:</h4>
-                <ul>
-                  <li v-for="(schedule, scheduleIndex) in landmark.schedule" :key="scheduleIndex">
-                    <p>{{ schedule.dayOfWeek }}: {{ schedule.openTime }} - {{ schedule.closeTime }}</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <h2>Plan Your Tour !!</h2>
+      <SearchCriteria :landmarks="landmarks"/>
     </div>
-    <h2>Plan Your Tour !!</h2>
-    <SearchCriteria :landmarks="landmarks"/>
+    
   </div>
 </template>
 
