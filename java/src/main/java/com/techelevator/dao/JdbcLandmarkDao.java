@@ -26,7 +26,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public ArrayList<Landmark> getLandmarkByName(String name) {
-        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address FROM landmarks " +
+        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address, landmark_image FROM landmarks " +
                 "JOIN schedule \n" +
                 "ON schedule.landmark_id = landmarks.landmark_id \n" +
                 "WHERE landmark_name ILIKE ?; ";
@@ -49,7 +49,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public ArrayList<Landmark> getLandmarkByCategory(String category) {
-        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address FROM landmarks " +
+        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address, landmark_image FROM landmarks " +
                 "JOIN schedule \n" +
                 "ON schedule.landmark_id = landmarks.landmark_id \n" +
                 "WHERE category ILIKE ?; ";
@@ -71,7 +71,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public ArrayList<Landmark> getAllLandmarks() {
-        String sql = "SELECT landmark_name, category, description, distance, address FROM landmarks";
+        String sql = "SELECT landmark_name, category, description, distance, address, landmark_image FROM landmarks";
 
 
         ArrayList<Landmark> landmarks = new ArrayList<Landmark>();
@@ -91,7 +91,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public ArrayList<Landmark> getAvailableHours(LocalTime openTime, LocalTime closeTime, String day) {
-        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address " +
+        String sql = "SELECT landmark_name, category, description, open_time, close_time, day_of_week, distance, address, landmark_image " +
                 "FROM landmarks " +
                 "JOIN schedule ON schedule.landmark_id = landmarks.landmark_id " +
                 "WHERE open_time <= ? AND close_time >= ? AND day_of_week = ?";
@@ -156,6 +156,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         landmark.setDescription(results.getString("description"));
         landmark.setDistance(results.getDouble("distance"));
         landmark.setAddress(results.getString("address"));
+        landmark.setImages(results.getString("landmark_image"));
 
 
 
