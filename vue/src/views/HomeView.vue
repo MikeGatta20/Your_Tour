@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <div>Hello</div>
     <div v-if="Object.keys(landmarks).length === 0">Loading landmarks...</div>
     <div v-else>
       <h1>Landmarks</h1>
@@ -9,15 +8,23 @@
           <li v-for="(landmark, index) in landmarks" :key="index">
             <div class="landmark-item">
               <div class="landmark-info">
-                
                 <h3>{{ landmark.landmark.landmarkName }}</h3>
                 <p>{{ landmark.landmark.address }}</p>
                 <p>{{ landmark.landmark.category }}</p>
                 <p>{{ landmark.landmark.description }}</p>
                 <p>Distance: {{ landmark.landmark.distance }}</p>
+                <button @click="toggleSchedule(index)">
+                  {{ showScheduleIndex === index ? 'Hide Schedule' : 'Show Schedule' }}
+                </button>
               </div>
-              
-              <p>Monday hours: {{ landmark.schedule.openTime}}</p>
+              <div v-if="showScheduleIndex === index" class="schedule">
+                <h4>Schedule:</h4>
+                <ul>
+                  <li v-for="(schedule, scheduleIndex) in landmark.schedule" :key="scheduleIndex">
+                    <p>{{ schedule.dayOfWeek }}: {{ schedule.openTime }} - {{ schedule.closeTime }}</p>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
         </ul>
@@ -38,7 +45,17 @@ export default {
   },
   data() {
     return {
-      landmarks: []
+      landmarks: [],
+      showScheduleIndex: null
+    }
+  },
+  methods: {
+    toggleSchedule(index) {
+      if (this.showScheduleIndex === index) {
+        this.showScheduleIndex = null;
+      } else {
+        this.showScheduleIndex = index;
+      }
     }
   },
   created() {
@@ -75,5 +92,9 @@ export default {
 
 .landmark-info p {
   margin: 5px 0;
+}
+
+.schedule {
+  margin-top: 10px;
 }
 </style>
