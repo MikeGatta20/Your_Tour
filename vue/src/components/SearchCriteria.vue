@@ -17,18 +17,11 @@
       </div>
       <div>
         <label for="dayOfWeek">Please select a day</label>
-        <select v-model="dayOfWeek">
-          <option v-for="(dayOfWeek, index) in dayOfWeekOptions" :key="index" required>{{ dayOfWeek }}</option>
+        <select v-model="dayOfWeek" required>
+          <option v-for="(dayOfWeek, index) in dayOfWeekOptions" :key="index" >{{ dayOfWeek }}</option>
         </select>
       </div>
-      <div>
-        <label for="start-time">When is your start time? (EST) </label>
-        <input type="time" name="start-time" v-model="startTime" required>
-      </div>
-      <div>
-        <label for="end-time">When is your end time? (EST) </label>
-        <input type="time" name="end-time" v-model="endTime" required>
-      </div>
+      
       <button type="submit">Search Landmarks</button>
     </form>
     <div>
@@ -36,6 +29,7 @@
       <ul>
         <li v-for="landmark in filteredLandmarks" :key="landmark.landmark.landmarkId">
           {{ landmark.landmark.landmarkName }} - {{ landmark.landmark.distance }} miles away
+          {{ landmark.schedule.dayOfWeek }}
         </li>
       </ul>
     </div>
@@ -72,6 +66,9 @@ export default {
       landmark.landmark.category.toLowerCase() === this.category.toLowerCase(); 
      })
    
+    },
+    getSchedule( landmarkId ,dayOfWeek){
+     
     }
   },
 
