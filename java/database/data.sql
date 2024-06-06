@@ -5,11 +5,11 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
 INSERT INTO landmarks (landmark_name, address, category, description, landmark_image, distance)
 VALUES
-    ('Montreal Museum of Fine Arts', '1380 Rue Sherbrooke O, Montreal, QC H3G 1J5', 'Museum', 'The Montreal Museum of Fine Arts (MMFA) is an art museum in Montreal, Quebec, Canada.', '/public/landmark-pictures/montreal_museum_of_fine_arts.jpg', 0.5),
-        ('Old Montreal', 'Montreal, Quebec, Canada', 'Historic Site', 'Old Montreal is a historic area located in the borough of Ville-Marie in Montreal, Quebec, Canada.', '/public/landmark-pictures/old_montreal.jpg', 2.5),
-        ('Mount Royal Park', '1260 Remembrance Rd, Montreal, QC H3H 1A2', 'Park', 'Mount Royal Park is a large volcanic-related hill or small mountain in the city of Montreal, immediately west of Downtown Montreal, Quebec, Canada.', '/public/landmark-pictures/mount_royal_park.jpg', 2.0),
-        ('Notre-Dame Basilica', '110 Notre-Dame St W, Montreal, QC H2Y 1T1', 'Church', 'Notre-Dame Basilica is a basilica in the historic district of Old Montreal, in Montreal, Quebec, Canada.', '/public/landmark-pictures/notre_dame_basilica.jpg', 1.0),
-        ('Montreal Botanical Garden', '4101 Sherbrooke St E, Montreal, QC H1X 2B2', 'Garden', 'The Montreal Botanical Garden is a large botanical garden in Montreal, Quebec, Canada comprising 75 hectares of thematic gardens and greenhouses.', '/public/landmark-pictures/montreal_botanical_garden.jpg', 5.0);
+    ('Montreal Museum of Fine Arts', '1380 Rue Sherbrooke O, Montreal, QC H3G 1J5', 'Museum', 'The Montreal Museum of Fine Arts (MMFA) is an art museum in Montreal, Quebec, Canada.', '/public/montreal_museum_of_fine_arts.jpg', 0.5),
+        ('Old Montreal', 'Montreal, Quebec, Canada', 'Historic Site', 'Old Montreal is a historic area located in the borough of Ville-Marie in Montreal, Quebec, Canada.', '/public/old_montreal.jpg', 2.5),
+        ('Mount Royal Park', '1260 Remembrance Rd, Montreal, QC H3H 1A2', 'Park', 'Mount Royal Park is a large volcanic-related hill or small mountain in the city of Montreal, immediately west of Downtown Montreal, Quebec, Canada.', '/public/mount_royal_park.jpg', 2.0),
+        ('Notre-Dame Basilica', '110 Notre-Dame St W, Montreal, QC H2Y 1T1', 'Church', 'Notre-Dame Basilica is a basilica in the historic district of Old Montreal, in Montreal, Quebec, Canada.', '/public/notre_dame_basilica.jpg', 1.0),
+        ('Montreal Botanical Garden', '4101 Sherbrooke St E, Montreal, QC H1X 2B2', 'Garden', 'The Montreal Botanical Garden is a large botanical garden in Montreal, Quebec, Canada comprising 75 hectares of thematic gardens and greenhouses.', '/public/montreal_botanical_garden.jpg', 5.0);
 
 INSERT INTO schedule (day_of_week, open_time, close_time, landmark_id)
 VALUES
