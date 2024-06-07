@@ -5,7 +5,9 @@
       <h1>Landmarks</h1>
       <h2>Plan Your Tour !!</h2>
       <SearchCriteria :landmarks="landmarks"/>
+      
     </div>
+    
     
   </div>
 </template>
@@ -16,7 +18,8 @@ import SearchLandmarkService from '../services/SearchLandmarksService.js';
 
 export default {
   components: {
-    SearchCriteria
+    SearchCriteria,
+  
   },
   data() {
     return {

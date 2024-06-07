@@ -54,14 +54,18 @@
         <p> {{ landmark.landmark.landmarkName }}</p>
       </li>
     </ul>
-    <button type="submit">Generate Route</button>
+    <Routes :landmarksItinerary="landmarksItinerary"></Routes>
+    
   </div>
 </template>
 
 <script>
 import SearchLandmarkService from '../services/SearchLandmarksService.js';
-
+import Routes from '../components/Routes.vue';
 export default {
+  components: {
+    Routes
+  },
   props: {
     landmarks: {
       type: Array,
