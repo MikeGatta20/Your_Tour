@@ -32,6 +32,8 @@
                 {{ showScheduleIndex === index ? 'Hide Schedule' : 'Show Schedule' }}
               </button>
             </div>
+            <input type="checkbox" :id="'landmarkCheckbox_' + index" v-model="isChecked[index]" @change="checkboxChanged(landmark)">
+            <label :for="'landmarkCheckbox_' + index">Add to Itinerary</label>
             <div v-if="showScheduleIndex === index" class="schedule">
               <h4>Schedule:</h4>
               <ul>
@@ -44,6 +46,12 @@
         </li>
       </ul>
     </div>
+    <button type="submit">Generate Itinerary</button>
+    <ul>
+      <li v-for="(landmark, landmarkIndex) in landmarksItinerary" :key="landmarkIndex">
+        <p> {{ landmark }}</p>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -68,27 +76,29 @@ export default {
       category: null,
       categoryOptions: ["Museum", "Historic Site", "Park", "Church", "Garden"],
       showScheduleIndex: null,
-      images: null
+      images: null,
+      landmarksItinerary: [],
+      isChecked: []
     };
   },
   methods: {
     searchLandmarks() {
       if(this.distance > 0 && this.category != null) {
-      this.filteredLandmarks = this.landmarks.filter(landmark => {
-        return landmark.landmark.distance <= this.distance &&
-               landmark.landmark.category.toLowerCase() === this.category.toLowerCase();
-      });
-    } else if (this.distance >0) {
-      this.filteredLandmarks = this.landmarks.filter(landmark => {
-        return landmark.landmark.distance <= this.distance;
-      })
-  }   else if(this.category != null) {
-    this.filteredLandmarks = this.landmarks.filter(landmark => {
-        return landmark.landmark.category.toLowerCase() === this.category.toLowerCase();
-
-  })
-}
+        this.filteredLandmarks = this.landmarks.filter(landmark => {
+          return landmark.landmark.distance <= this.distance &&
+            landmark.landmark.category.toLowerCase() === this.category.toLowerCase();
+        });
+      } else if (this.distance >0) {
+        this.filteredLandmarks = this.landmarks.filter(landmark => {
+          return landmark.landmark.distance <= this.distance;
+        })
+      } else if(this.category != null) {
+        this.filteredLandmarks = this.landmarks.filter(landmark => {
+          return landmark.landmark.category.toLowerCase() === this.category.toLowerCase();
+        })
+      }
     },
+
     toggleSchedule(index) {
       if (this.showScheduleIndex === index) {
         this.showScheduleIndex = null;
@@ -97,12 +107,26 @@ export default {
       }
     },
     getSchedule(landmarkId, dayOfWeek) {
-      // Functionality for getting schedule can be implemented here
+      
+    },
+    checkboxChanged(landmark) {
+      const index = this.filteredLandmarks.findIndex(l => l === landmark);
+      if (index !== -1) {
+        if (this.isChecked[index]) {
+          this.landmarksItinerary.push(landmark);
+        } else {
+          const itineraryIndex = this.landmarksItinerary.indexOf(landmark);
+          if (itineraryIndex !== -1) {
+            this.landmarksItinerary.splice(itineraryIndex, 1);
+          }
+        }
+      }
     }
   },
   created() {
     SearchLandmarkService.getAllLandmarks().then(response => {
       this.filteredLandmarks = response.data;
+      this.isChecked = new Array(this.filteredLandmarks.length).fill(false);
     }).catch(error => {
       console.error('Error fetching landmarks:', error);
     });
