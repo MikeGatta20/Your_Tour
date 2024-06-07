@@ -156,7 +156,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         landmark.setDescription(results.getString("description"));
         landmark.setDistance(results.getDouble("distance"));
         landmark.setAddress(results.getString("address"));
-        landmark.setImages(results.getString("landmark_image"));
+        landmark.setLandmarkImage(results.getString("landmark_image"));
 
 
 

@@ -27,7 +27,7 @@
               <p>{{ landmark.landmark.category }}</p>
               <p>{{ landmark.landmark.description }}</p>
               <p>Distance: {{ landmark.landmark.distance }} miles</p>
-              <img :src="landmark.landmark.images" alt="Image Not Found">
+              <img class="landmark-images" :src="landmark.landmark.landmarkImage" alt="Image Not Found">
               <button @click="toggleSchedule(index)">
                 {{ showScheduleIndex === index ? 'Hide Schedule' : 'Show Schedule' }}
               </button>
@@ -67,7 +67,8 @@ export default {
       endTime: null,
       category: null,
       categoryOptions: ["Museum", "Historic Site", "Park", "Church", "Garden"],
-      showScheduleIndex: null
+      showScheduleIndex: null,
+      images: null
     };
   },
   methods: {
@@ -139,4 +140,8 @@ export default {
 .schedule {
   margin-top: 10px;
 }
+.landmark-images {
+ height: 150px;
+ width: 150px;
+ }
 </style>

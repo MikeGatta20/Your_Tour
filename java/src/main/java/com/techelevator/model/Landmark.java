@@ -64,12 +64,12 @@ public class Landmark {
         this.description = description;
     }
 
-    public String getImages() {
+    public String getLandmarkImage() {
         return landmarkImage;
     }
 
-    public void setImages(String images) {
-        this.landmarkImage = landmarkImage;
+    public void setLandmarkImage(String images) {
+        this.landmarkImage = images;
     }
 
     public Double getDistance() {
