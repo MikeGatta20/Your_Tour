@@ -1,9 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="searchLandmarks">
-      <div>
-        <p>Your starting point: 1228 Sherbrooke St W, Montreal, Quebec</p>
-      </div>
+  
       <div>
         <label for="distance">How many miles would you like to travel? </label>
         <input type="number" name="distance" max="20" min="0" step="0.1" v-model.number="distance">
@@ -46,12 +44,17 @@
         </li>
       </ul>
     </div>
-    <button type="submit">Generate Itinerary</button>
+    <div>
+        <p>Your starting point: 1228 Sherbrooke St W, Montreal, Quebec</p>
+      </div>
+    <label >Please select a date</label>
+    <input type = "date">
     <ul>
       <li v-for="(landmark, landmarkIndex) in landmarksItinerary" :key="landmarkIndex">
-        <p> {{ landmark }}</p>
+        <p> {{ landmark.landmark.landmarkName }}</p>
       </li>
     </ul>
+    <button type="submit">Generate Route</button>
   </div>
 </template>
 
