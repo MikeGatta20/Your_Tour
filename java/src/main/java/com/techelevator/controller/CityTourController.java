@@ -73,5 +73,9 @@ public class CityTourController {
     ) {
         return landmarkDao.getAvailableHours(openTime, closeTime, dayOfWeek);
     }
+    @RequestMapping(path ="/search/getAllRatings", method = RequestMethod.GET)
+    public List<Landmark> getAllRatings(){
+        return landmarkDao.getAllRatings();
+    }
 }
 

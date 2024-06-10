@@ -49,4 +49,10 @@ VALUES
     ('Saturday', '12:00', '21:30', 5),
     ('Sunday', '12:00', '21:30', 5);
 
+
+
+INSERT INTO landmark_ratings (user_id,landmark_id,thumbs_up,thumbs_down)
+VALUES(2,1,1,0);
+
+
 COMMIT TRANSACTION;

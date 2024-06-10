@@ -129,6 +129,25 @@ public class JdbcLandmarkDao implements LandmarkDao {
         return schedules;
     }
 
+    @Override
+    public List<Landmark> getAllRatings() {
+        String sql = "SELECT  landmark_id, SUM (thumbs_up) AS total_thumbs_up,SUM (thumbs_down) AS total_thumbs_down\n" +
+                "FROM landmark_ratings\n" +
+                "GROUP BY landmark_id; ";
+        ArrayList<Landmark> landmarks = new ArrayList<>();
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+            while (results.next()) {
+                Landmark landmark = mapRowToLandmark(results);
+                landmarks.add(landmark);
+            }
+        } catch (NullPointerException e) {
+            throw new DaoException("NullPointerException", e);
+        }
+
+        return landmarks;
+    }
+
     private Schedule mapRowToSchedule(SqlRowSet results) {
         Schedule schedule = new Schedule();
         schedule.setOpenTime(results.getTime("open_time").toLocalTime());
