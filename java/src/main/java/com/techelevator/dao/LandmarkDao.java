@@ -24,4 +24,6 @@ public interface LandmarkDao {
     ArrayList<Schedule> getSchedulesForLandmark(int landmarkId);
 
     ArrayList<Ratings> getAllRatings();
+
+    Ratings updateRating(Ratings rating);
 }

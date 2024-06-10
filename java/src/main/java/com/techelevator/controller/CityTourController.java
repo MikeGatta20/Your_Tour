@@ -66,5 +66,11 @@ public class CityTourController {
     public ArrayList<Ratings> getAllRatings(){
         return landmarkDao.getAllRatings();
     }
+
+    @RequestMapping(path ="/search/updateRating/{user_id}", method = RequestMethod.PUT)
+    public Ratings updateRating(@PathVariable("user_id") int user_id, @RequestBody Ratings rating){
+        rating.setUser_id(user_id);
+        return landmarkDao.updateRating(rating);
+    }
 }
 

@@ -52,7 +52,11 @@ VALUES
 
 
 INSERT INTO landmark_ratings (user_id,landmark_id,thumbs_up,thumbs_down)
-VALUES(2,1,1,0);
+VALUES(2,1,1,0),
+      (1,2,0,1),
+      (1,3,0,1),
+      (1,4,1,0),
+      (1,5,1,0);
 
 
 COMMIT TRANSACTION;
