@@ -1,21 +1,10 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.LandmarkDao;
-import com.techelevator.exception.DaoException;
 import com.techelevator.model.*;
-import com.techelevator.security.jwt.JWTFilter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
-import javax.validation.Valid;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,7 +63,7 @@ public class CityTourController {
         return landmarkDao.getAvailableHours(openTime, closeTime, dayOfWeek);
     }
     @RequestMapping(path ="/search/getAllRatings", method = RequestMethod.GET)
-    public List<Landmark> getAllRatings(){
+    public ArrayList<Ratings> getAllRatings(){
         return landmarkDao.getAllRatings();
     }
 }

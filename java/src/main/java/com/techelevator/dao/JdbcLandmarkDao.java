@@ -1,19 +1,15 @@
 package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
-import com.techelevator.model.Itinerary;
 import com.techelevator.model.Landmark;
+import com.techelevator.model.Ratings;
 import com.techelevator.model.Schedule;
-import org.apache.tomcat.jni.Local;
-import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class JdbcLandmarkDao implements LandmarkDao {
@@ -130,22 +126,22 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     @Override
-    public List<Landmark> getAllRatings() {
+    public ArrayList<Ratings> getAllRatings() {
         String sql = "SELECT  landmark_id, SUM (thumbs_up) AS total_thumbs_up,SUM (thumbs_down) AS total_thumbs_down\n" +
                 "FROM landmark_ratings\n" +
                 "GROUP BY landmark_id; ";
-        ArrayList<Landmark> landmarks = new ArrayList<>();
+        ArrayList<Ratings> ratings = new ArrayList<>();
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
-                Landmark landmark = mapRowToLandmark(results);
-                landmarks.add(landmark);
+                Ratings rating = mapRowToRatings(results);
+                ratings.add(rating);
             }
         } catch (NullPointerException e) {
             throw new DaoException("NullPointerException", e);
         }
 
-        return landmarks;
+        return ratings;
     }
 
     private Schedule mapRowToSchedule(SqlRowSet results) {
@@ -183,6 +179,14 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
         return landmark;
 
+    }
+    public Ratings mapRowToRatings(SqlRowSet results){
+        Ratings rating = new Ratings();
+        rating.setLandmark_id((results.getInt("landmark_id")));
+        rating.setThumbs_up((results.getInt("total_thumbs_up")));
+        rating.setThumbs_down((results.getInt("total_thumbs_down")));
+
+        return rating;
     }
 
 

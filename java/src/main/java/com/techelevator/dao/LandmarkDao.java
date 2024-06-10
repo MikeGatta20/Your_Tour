@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Landmark;
 import com.techelevator.model.Schedule;
+import com.techelevator.model.Ratings;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -22,5 +23,5 @@ public interface LandmarkDao {
 
     ArrayList<Schedule> getSchedulesForLandmark(int landmarkId);
 
-    List<Landmark> getAllRatings();
+    ArrayList<Ratings> getAllRatings();
 }
