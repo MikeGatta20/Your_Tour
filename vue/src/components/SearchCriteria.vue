@@ -186,9 +186,7 @@ export default {
         this.showScheduleIndex = index;
       }
     },
-    getSchedule(landmarkId, dayOfWeek) {
-      
-    },
+   
     checkboxChanged(landmark) {
       const index = this.filteredLandmarks.findIndex(l => l === landmark);
       if (index !== -1) {
