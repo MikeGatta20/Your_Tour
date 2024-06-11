@@ -10,5 +10,9 @@ export default {
     return axios.get('/search/getAllRatings')
   },
 
+  updateRatings(rating){
+    return axios.put('/search/updateRating', rating)
+  }
+
 
 }

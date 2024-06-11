@@ -148,9 +148,9 @@ public class JdbcLandmarkDao implements LandmarkDao {
     public Ratings updateRating(Ratings rating) {
         String sql = "UPDATE landmark_ratings\n" +
                 "SET thumbs_up = ?, thumbs_down = ?\n" +
-                "WHERE user_id = ?";
+                "WHERE user_id = ? AND landmark_id = ?; ";
         try {
-            int rowsUpdated = jdbcTemplate.update(sql, rating.getThumbs_up(), rating.getThumbs_down(), rating.getUser_id());
+            int rowsUpdated = jdbcTemplate.update(sql, rating.getThumbs_up(), rating.getThumbs_down(), rating.getUser_id(), rating.getLandmark_id());
 
 
         } catch (NullPointerException e) {

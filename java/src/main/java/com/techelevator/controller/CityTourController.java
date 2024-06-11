@@ -67,10 +67,13 @@ public class CityTourController {
         return landmarkDao.getAllRatings();
     }
 
-    @RequestMapping(path ="/search/updateRating/{user_id}", method = RequestMethod.PUT)
-    public Ratings updateRating(@PathVariable("user_id") int user_id, @RequestBody Ratings rating){
-        rating.setUser_id(user_id);
-        return landmarkDao.updateRating(rating);
+    @RequestMapping(path = "/search/updateRating", method = RequestMethod.PUT)
+    public Ratings updateRating(@RequestBody Ratings ratingToUpdate) {
+        // Print the received rating for debugging
+        System.out.println(ratingToUpdate);
+
+        // Call the DAO method to update the rating
+        return landmarkDao.updateRating(ratingToUpdate);
     }
 }
 
