@@ -1,4 +1,5 @@
 <template>
+  {{ this.$store.state.user.id }}
   <div>
     <form @submit.prevent="searchLandmarks">
       <div>
