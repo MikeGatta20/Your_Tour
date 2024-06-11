@@ -146,11 +146,11 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public Ratings updateRating(Ratings rating) {
-        String sql = "UPDATE landmark_ratings\n" +
-                "SET thumbs_up = ?, thumbs_down = ?\n" +
-                "WHERE user_id = ? AND landmark_id = ?; ";
+        String sql = "INSERT INTO landmark_ratings (user_id, landmark_id, thumbs_up, thumbs_down)\n" +
+        "VALUES (?, ?, ?, ?)\n" +
+        "ON CONFLICT (user_id, landmark_id) DO UPDATE SET thumbs_up = EXCLUDED.thumbs_up, thumbs_down = EXCLUDED.thumbs_down;";
         try {
-            int rowsUpdated = jdbcTemplate.update(sql, rating.getThumbs_up(), rating.getThumbs_down(), rating.getUser_id(), rating.getLandmark_id());
+            int rowsUpdated = jdbcTemplate.update(sql, rating.getUser_id(), rating.getLandmark_id(), rating.getThumbs_up(), rating.getThumbs_down());
 
 
         } catch (NullPointerException e) {

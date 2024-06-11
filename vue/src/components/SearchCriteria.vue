@@ -110,27 +110,55 @@ export default {
     clickForLike(isThumbsUp, index, landmarkId) {
       if (isThumbsUp) {
         if (this.filteredLandmarks[index].likeColor === "red") {
-          let newRating = this.filteredRatings(landmarkId);
-          console.log(newRating)
-          newRating.thumbs_down = 0;
-          newRating.thumbs_up = 0;
-          newRating.user_id = 1;
+          let newRating = {
+          thumbs_down: 0,
+          thumbs_up: 0,
+          user_id: 1,
+          landmark_id: landmarkId
+      };
           console.log(newRating)
 
           RatingService.updateRatings(newRating);
           this.filteredLandmarks[index].likeColor = "";
         } else {
+          let newRating = {
+          thumbs_down: 1,
+          thumbs_up: 0,
+          user_id: 1,
+          landmark_id: landmarkId
+          };
+          console.log(newRating)
+          RatingService.updateRatings(newRating); 
           this.filteredLandmarks[index].likeColor = "red";
+          this.filteredLandmarks[index].dislikeColor = "";
+
         }
-        this.filteredLandmarks[index].dislikeColor = "";
+                 
   }    else {
         if (this.filteredLandmarks[index].dislikeColor === "green") {
-        this.filteredLandmarks[index].dislikeColor = "";
+          let newRating = {
+          thumbs_down: 0,
+          thumbs_up: 0,
+          user_id: 1,
+          landmark_id: landmarkId
+          };
+          console.log(newRating)
+          RatingService.updateRatings(newRating);  
+          this.filteredLandmarks[index].dislikeColor = "";
     } else {
-        this.filteredLandmarks[index].dislikeColor = "green";
-    }
-    this.filteredLandmarks[index].likeColor = "";
-}
+          let newRating = {
+          thumbs_down: 0,
+          thumbs_up: 1,
+          user_id: 1,
+          landmark_id: landmarkId
+          };
+          console.log(newRating)
+          RatingService.updateRatings(newRating); 
+          this.filteredLandmarks[index].dislikeColor = "green";
+          this.filteredLandmarks[index].likeColor = "";
+        }
+      }
+    
 
     },
 
