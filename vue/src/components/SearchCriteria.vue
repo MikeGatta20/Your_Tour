@@ -1,5 +1,6 @@
 <template>
   {{ this.$store.state.user.id }}
+  {{this.$store.state.user.id}}
   <div>
     <form @submit.prevent="searchLandmarks">
       <div>
@@ -114,7 +115,7 @@ export default {
           let newRating = {
           thumbs_down: 0,
           thumbs_up: 0,
-          user_id: 1,
+          user_id: this.$store.state.user.id,
           landmark_id: landmarkId
       };
           console.log(newRating)
@@ -125,7 +126,7 @@ export default {
           let newRating = {
           thumbs_down: 1,
           thumbs_up: 0,
-          user_id: 1,
+          user_id: this.$store.state.user.id,
           landmark_id: landmarkId
           };
           console.log(newRating)
@@ -140,7 +141,7 @@ export default {
           let newRating = {
           thumbs_down: 0,
           thumbs_up: 0,
-          user_id: 1,
+          user_id: this.$store.state.user.id,
           landmark_id: landmarkId
           };
           console.log(newRating)
@@ -150,7 +151,7 @@ export default {
           let newRating = {
           thumbs_down: 0,
           thumbs_up: 1,
-          user_id: 1,
+          user_id: this.$store.state.user.id,
           landmark_id: landmarkId
           };
           console.log(newRating)
@@ -162,7 +163,6 @@ export default {
     
 
     },
-
 
     searchLandmarks() {
       if(this.distance > 0 && this.category != null) {
@@ -187,9 +187,7 @@ export default {
         this.showScheduleIndex = index;
       }
     },
-    getSchedule(landmarkId, dayOfWeek) {
-      
-    },
+   
     checkboxChanged(landmark) {
       const index = this.filteredLandmarks.findIndex(l => l === landmark);
       if (index !== -1) {
@@ -212,13 +210,37 @@ export default {
       console.error('Error fetching landmarks:', error);
     });
   },
-mounted(){
+  mounted() {
   RatingService.getAllRatings().then(response => {
     this.ratings = response.data;
 
-  
+    this.ratings.forEach(rating => {
+      if (rating.user_id === this.$store.state.user.id) {
+        const index = this.filteredLandmarks.findIndex(landmark => landmark.landmark.landmarkId === rating.landmark_id);
+        if (index !== -1) {
+          if (rating.thumbs_up >= 1) {
+          
+            let thumbsUpElements = document.getElementsByClassName(`like`);
+            Array.from(thumbsUpElements).forEach(element => {
+              element.style.color = "red";
+            });
+          } else if (rating.thumbs_down >= 1) {
+         
+            let thumbsDownElements = document.getElementsByClassName(`dislike`);
+            Array.from(thumbsDownElements).forEach(element => {
+              element.style.color = "green";
+            });
+          }
+        }
+      }
+    });
+
+  }).catch(error => {
+    console.error('Error fetching ratings:', error);
   });
 }
+
+
 }
 </script>
 
