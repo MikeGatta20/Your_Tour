@@ -31,14 +31,16 @@
               <h3 class ="landmark-title">{{ landmark.landmark.landmarkName }}</h3>
               <p class="landmark-address">{{ landmark.landmark.address }}</p>
               <p class ="landmark-description">{{ landmark.landmark.description }}</p>
-              <p class = "category-distance"> Category: {{ landmark.landmark.category }} || Distance: {{ landmark.landmark.distance }} miles</p>
+
+              <div>
+                <button @click="toggleSchedule(index)" class="schedule-button">
+                   {{ showScheduleIndex === index ? 'Hide Schedule' : 'Show Schedule' }}
+                </button>
+                <p class = "category-distance"> Category: {{ landmark.landmark.category }} || Distance: {{ landmark.landmark.distance }} km 
+                </p>
+              </div>
               <img class="landmark-images" :src="landmark.landmark.landmarkImage" alt="Image Not Found">
               </div>
-             
-              <button @click="toggleSchedule(index)">
-                {{ showScheduleIndex === index ? 'Hide Schedule' : 'Show Schedule' }}
-              </button>
-             
               <div>
                 <div class ="thumb-logo">
                 <svg @click="clickForLike(false, index, landmark.landmark.landmarkId)" :fill="landmark.dislikeColor || 'currentColor'" class="bi bi-hand-thumbs-down dislike" viewBox="0 0 16 16">
@@ -54,8 +56,8 @@
             </div>
             </div>
             <div class ="itinerary-info">
-            <input type="checkbox" :id="'landmarkCheckbox_' + index" v-model="isChecked[index]" @change="checkboxChanged(landmark)">
-            <label :for="'landmarkCheckbox_' + index">Add to Itinerary</label>
+            <input class= "landmark-checkbox" type="checkbox" :id="'landmarkCheckbox_' + index" v-model="isChecked[index]" @change="checkboxChanged(landmark)">
+            <label class="itinerary-label" :for="'landmarkCheckbox_' + index"> Add to Itinerary</label>
             </div>
             <div v-if="showScheduleIndex === index" class="schedule">
               <h4>Schedule (EST):</h4>
@@ -368,8 +370,24 @@ export default {
 }
 .itinerary-info{
   text-align: bottom;
-  font-size: 50px;
+  font-size: 40px;
   justify-items: flex-end;
+  padding-right: 50px;
+}
+
+.landmark-checkbox {
+  height: 30px;
+  width: 30px;
+  margin-top: 625px;
+
+}
+
+.itinerary-label {
+  padding-left: 20px;
+}
+
+.schedule-button {
+  
 }
 
 </style>
