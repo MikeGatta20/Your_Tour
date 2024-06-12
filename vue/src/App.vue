@@ -7,3 +7,10 @@
     <router-view />
   </div>
 </template>
+
+<style>
+#nav a {
+  color: black;
+}
+
+</style>

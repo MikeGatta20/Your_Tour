@@ -1,19 +1,26 @@
 <template>
-  {{ this.$store.state.user.id }}
-  {{this.$store.state.user.id}}
+ 
   <div>
     <form @submit.prevent="searchLandmarks">
-      <div>
+      <div class="search-filters"> 
+      <div id="travel-distance">
+        <div class="label-text">
         <label for="distance">How many miles would you like to travel? </label>
+        </div>
         <input type="number" name="distance" max="20" min="0" step="0.1" v-model.number="distance">
       </div>
       <div> 
+        <div class="label-text">
         <label for="category">Please choose a category</label>
+      </div>
         <select v-model="category">
           <option v-for="(category, index) in categoryOptions" :key="index">{{ category }}</option>
         </select>
+        <div>
+        <button class="btn btn-primary" type="submit">Search Landmarks</button>
       </div>
-      <button type="submit">Search Landmarks</button>
+      </div>
+      </div>
     </form>
     <div class="landmarks-box">
       <label>Landmarks Found</label>
@@ -47,7 +54,7 @@
             <input type="checkbox" :id="'landmarkCheckbox_' + index" v-model="isChecked[index]" @change="checkboxChanged(landmark)">
             <label :for="'landmarkCheckbox_' + index">Add to Itinerary</label>
             <div v-if="showScheduleIndex === index" class="schedule">
-              <h4>Schedule:</h4>
+              <h4>Schedule (EST):</h4>
               <ul>
                 <li v-for="(schedule, scheduleIndex) in landmark.schedule" :key="scheduleIndex">
                   <p>{{ schedule.dayOfWeek }}: {{ schedule.openTime }} - {{ schedule.closeTime }}</p>
@@ -289,4 +296,39 @@ export default {
     height: 60px;
     width: 60px; 
   }
+  .search-filters > div {
+  text-align: center;
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+/* Style the input and select elements */
+.search-filters input[type="number"],
+.search-filters select {
+  width: 30%; /* Make the input and select elements fill the container */
+  padding: 10px; /* Add padding for better appearance */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 5px; /* Add rounded corners */
+  margin-bottom: 10px; /* Add bottom margin for spacing */
+}
+
+/* Style the submit button */
+.search-filters button {
+  width: 30%; /* Make the button fill the container */
+  padding: 10px; /* Add padding for better appearance */
+  background-color: #007bff; /* Change background color */
+  color: #fff; /* Change text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s ease; /* Add smooth transition */
+}
+
+.search-filters button:hover {
+  background-color: #0056b3; /* Darken background color on hover */
+}
+.label-text {
+  font-size: 35px;
+}
+
+
 </style>

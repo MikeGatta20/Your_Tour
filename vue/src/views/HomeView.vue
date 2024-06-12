@@ -2,14 +2,13 @@
   <div class="home">
     <div v-if="Object.keys(landmarks).length === 0">Loading landmarks...</div>
     <div v-else>
-      <h1>Landmarks</h1>
-      <h2>Plan Your Tour !!</h2>
-      <SearchCriteria :landmarks="landmarks"/>
-      
+      <h1>Welcome to Montreal</h1>
+      <h2>Plan Your Tour Today!</h2>
     </div>
-    
-    
+    <img src="/logo.png" id="logo" alt="Logo">
+   
   </div>
+  <SearchCriteria :landmarks="landmarks"/>
 </template>
 
 <script>
@@ -74,5 +73,29 @@ export default {
 
 .schedule {
   margin-top: 10px;
+}
+
+.home {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 100px; /* Adjust font size for better readability */
+  margin-top: 20px; /* Add some space between the logo and headings */
+}
+
+#logo {
+  height: auto; /* Allow the logo to adjust its height while maintaining aspect ratio */
+  width: 80%; /* Adjust width for responsiveness */
+  max-width: 400px; /* Set a maximum width for larger screens */
+  margin-top: 20px; /* Add some space between the headings and logo */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 45px;
 }
 </style>
