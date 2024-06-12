@@ -3,13 +3,13 @@ package com.techelevator.model;
 import java.time.LocalTime;
 
 public class Schedule {
-    private LocalTime openTime;
-    private LocalTime closeTime;
+    private String openTime;
+    private String closeTime;
     private String dayOfWeek;
 
     private int landmarkId;
 
-    public Schedule(LocalTime openTime, LocalTime closeTime, String dayOfWeek, int landmarkId) {
+    public Schedule(String openTime, String closeTime, String dayOfWeek, int landmarkId) {
         this.openTime = openTime;
         this.closeTime = closeTime;
         this.dayOfWeek = dayOfWeek;
@@ -28,19 +28,19 @@ public class Schedule {
 
     }
 
-    public LocalTime getOpenTime() {
+    public String getOpenTime() {
         return openTime;
     }
 
-    public void setOpenTime(LocalTime openTime) {
+    public void setOpenTime(String openTime) {
         this.openTime = openTime;
     }
 
-    public LocalTime getCloseTime() {
+    public String getCloseTime() {
         return closeTime;
     }
 
-    public void setCloseTime(LocalTime closeTime) {
+    public void setCloseTime(String closeTime) {
         this.closeTime = closeTime;
     }
 

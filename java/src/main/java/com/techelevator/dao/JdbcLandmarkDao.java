@@ -161,8 +161,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     private Schedule mapRowToSchedule(SqlRowSet results) {
         Schedule schedule = new Schedule();
-        schedule.setOpenTime(results.getTime("open_time").toLocalTime());
-        schedule.setCloseTime(results.getTime("close_time").toLocalTime());
+        schedule.setOpenTime(results.getString("open_time"));
+        schedule.setCloseTime(results.getString("close_time"));
         schedule.setDayOfWeek(results.getString("day_of_week"));
         schedule.setLandmarkId(results.getInt("landmark_id"));
 

@@ -27,8 +27,8 @@ CREATE TABLE schedule (
     schedule_id SERIAL PRIMARY KEY,
     landmark_id INT NOT NULL,
     day_of_week VARCHAR(20),
-    open_time TIME,
-    close_time TIME,
+    open_time varchar (12),
+    close_time varchar (12),
     CONSTRAINT fk_landmark_id FOREIGN KEY (landmark_id) REFERENCES landmarks(landmark_id)
 );
 

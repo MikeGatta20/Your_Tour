@@ -95,7 +95,7 @@ export default {
       startTime: null,
       endTime: null,
       category: null,
-      categoryOptions: ["Museum", "Historic Site", "Park", "Church", "Garden"],
+      categoryOptions: ["Museum", "Historic Site", "Park", "Church", "Garden", "Market", "Amusement Park", "Educational Institution", "Shopping", "Stadium"],
       showScheduleIndex: null,
       images: null,
       landmarksItinerary: [],
