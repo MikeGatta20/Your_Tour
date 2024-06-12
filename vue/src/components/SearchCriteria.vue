@@ -253,14 +253,17 @@ export default {
 
 <style scoped>
 .landmarks-box {
-  max-height: 300px; /* Adjust the height as needed */
+  max-height: 800px; /* Adjust the height as needed */
   overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;
   margin-top: 10px;
+  width: 80%;
+  text-align: center;
 }
-
 .landmark-item {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
   margin-bottom: 10px;
@@ -276,16 +279,21 @@ export default {
 
 .landmark-info p {
   margin: 5px 0;
+
+}
+
+.landmark-info button {
+  margin-right: 10px;
 }
 
 .schedule {
   margin-top: 10px;
 }
 .landmark-images {
- height: 150px;
- width: 150px;
- }
-
+  height: 300px;
+  width: 300px;
+  justify-items: left;
+}
  .like {
   height: 60px;
   width: 60px; 
