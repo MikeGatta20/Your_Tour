@@ -75,8 +75,48 @@ export default {
 <style scoped>
 .form-input-group {
   margin-bottom: 1rem;
+  margin-top: 50px;
 }
+.form-input-group label{
+  font-size: 25px;
+  font-weight: bold;
+}
+
 label {
   margin-right: 0.5rem;
+}
+
+#register {
+  text-align: center;
+  background-color: #e96f6f;
+  width: 50%;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 20px;
+  color: white;
+  line-height: 30px;
+  padding: 25px;
+}
+
+button {
+  background-color: #6bc6a9;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border:none;
+  font-weight: bold;
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+
+a {
+  color:white;
+  font-size: 25px;
 }
 </style>
