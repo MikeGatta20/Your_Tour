@@ -17,7 +17,16 @@ VALUES
     ('Eaton Centre Montreal', '705 Rue Sainte-Catherine O, Montreal, QC H3B 4G5', 'Shopping', 'Eaton Centre Montreal is a large shopping mall in downtown Montreal, featuring a variety of shops and restaurants.', '/eaton_centre.jpg', 1.2),
     ('The Montreal Museum of Contemporary Art', '185 Sainte-Catherine St W, Montreal, QC H2X 3X5', 'Museum', 'The Montreal Museum of Contemporary Art is a contemporary art museum in Montreal.', '/museum_of_contemporary_art.jpg', 1.5),
     ('Bell Centre', '1909 Avenue des Canadiens-de-Montréal, Montreal, QC H4B 5G0', 'Stadium', 'The Bell Centre is a sports and entertainment complex in Montreal, best known as the home of the Montreal Canadiens.', '/bell_centre.jpg', 0.9),
-    ('Mount Royal Chalet', '1196 Voie Camillien-Houde, Montreal, QC H3H 1A1', 'Park', 'Mount Royal Chalet offers stunning views of the city of Montreal and is a popular spot for tourists and locals alike.', '/mount_royal_chalet.jpg', 2.0);
+    ('Mount Royal Chalet', '1196 Voie Camillien-Houde, Montreal, QC H3H 1A1', 'Park', 'Mount Royal Chalet offers stunning views of the city of Montreal and is a popular spot for tourists and locals alike.', '/mount_royal_chalet.jpg', 2.0),
+    ('Lachine Canal', 'Canal-de-Lachine, Montreal, QC', 'Park', 'The Lachine Canal is a canal passing through the southwestern part of the Island of Montreal, Quebec, Canada.', '/lachine_canal.jpg', 3.2),
+    ('Pointe-à-Callière Museum', '350 Place Royale, Montreal, QC H2Y 3Y5', 'Museum', 'Pointe-à-Callière Museum is a museum of archaeology and history in Old Montreal, Quebec, Canada.', '/pointe_a_calliere_museum.jpg', 4.2),
+    ('Maison Saint-Gabriel', '2146 Place Dublin, Montreal, QC H3K 2A2', 'Historic Site', 'Maison Saint-Gabriel is a historic site and museum located in Montreal, Quebec, Canada.', '/maison_saint_gabriel.jpg', 3.9),
+    ('Parc La Fontaine', '3933 Avenue du Parc-La Fontaine, Montreal, QC H2L 0C7', 'Park', 'Parc La Fontaine is a large park located in the borough of Le Plateau-Mont-Royal in Montreal, Quebec, Canada.', '/parc_la_fontaine.jpg', 4.5),
+    ('La Grande Roue de Montréal', '362 Rue de la Commune E, Montreal, QC H2Y 0B4', 'Amusement Park', 'La Grande Roue de Montréal is a giant observation wheel located in the Old Port of Montreal, Quebec, Canada.', '/la_grande_roue.jpg', 3.7),
+    ('Château Ramezay', '280 Notre-Dame St E, Montreal, QC H2Y 1C5', 'Historic Site', 'Château Ramezay is a museum and historic building in Old Montreal, Quebec, Canada.', '/chateau_ramezay.jpg', 4.1),
+    ('Cité Mémoire', '375 Rue Notre-Dame E, Montreal, QC H2Y 1C9', 'Art', 'Cité Mémoire is an outdoor multimedia project in Old Montreal, Quebec, Canada.', '/cite_memoire.jpg', 4.0),
+    ('Jardin Botanique de Montréal', '4101 Rue Sherbrooke E, Montreal, QC H1X 2B2', 'Garden', 'Jardin Botanique de Montréal is a large botanical garden in Montreal, Quebec, Canada.', '/jardin_botanique.jpg', 4.9),
+    ('Musée des beaux-arts de Montréal', '1380 Rue Sherbrooke O, Montreal, QC H3G 1J5', 'Museum', 'Musée des beaux-arts de Montréal is an art museum in Montreal, Quebec, Canada.', '/musee_des_beaux_arts.jpg', 4.7);
 
 INSERT INTO schedule (day_of_week, open_time, close_time, landmark_id)
 VALUES
@@ -123,7 +132,79 @@ VALUES
     ('Thursday', '02:00 PM', '10:00 PM', 13),
     ('Friday', '02:00 PM', '10:00 PM', 13),
     ('Saturday', '03:00 PM', '11:00 PM', 13),
-    ('Sunday', '03:00 PM', '11:00 PM', 13);
+    ('Sunday', '03:00 PM', '11:00 PM', 13),
+
+    ('Monday', '10:00 AM', '08:00 PM', 14),
+        ('Tuesday', '10:00 AM', '08:00 PM', 14),
+        ('Wednesday', '10:00 AM', '08:00 PM', 14),
+        ('Thursday', '10:00 AM', '08:00 PM', 14),
+        ('Friday', '10:00 AM', '08:00 PM', 14),
+        ('Saturday', '11:00 AM', '07:00 PM', 14),
+        ('Sunday', '11:00 AM', '07:00 PM', 14),
+
+        ('Monday', '09:00 AM', '05:00 PM', 15),
+        ('Tuesday', '09:00 AM', '05:00 PM', 15),
+        ('Wednesday', '09:00 AM', '05:00 PM', 15),
+        ('Thursday', '09:00 AM', '05:00 PM', 15),
+        ('Friday', '09:00 AM', '05:00 PM', 15),
+        ('Saturday', '10:00 AM', '06:00 PM', 15),
+        ('Sunday', '10:00 AM', '06:00 PM', 15),
+
+        ('Monday', '08:00 AM', '06:00 PM', 16),
+        ('Tuesday', '08:00 AM', '06:00 PM', 16),
+        ('Wednesday', '08:00 AM', '06:00 PM', 16),
+        ('Thursday', '08:00 AM', '06:00 PM', 16),
+        ('Friday', '08:00 AM', '06:00 PM', 16),
+        ('Saturday', '09:00 AM', '05:00 PM', 16),
+        ('Sunday', '09:00 AM', '05:00 PM', 16),
+
+        ('Monday', '07:00 AM', '07:00 PM', 17),
+        ('Tuesday', '07:00 AM', '07:00 PM', 17),
+        ('Wednesday', '07:00 AM', '07:00 PM', 17),
+        ('Thursday', '07:00 AM', '07:00 PM', 17),
+        ('Friday', '07:00 AM', '07:00 PM', 17),
+        ('Saturday', '08:00 AM', '08:00 PM', 17),
+        ('Sunday', '08:00 AM', '08:00 PM', 17),
+
+        ('Monday', '10:00 AM', '10:00 PM', 18),
+        ('Tuesday', '10:00 AM', '10:00 PM', 18),
+        ('Wednesday', '10:00 AM', '10:00 PM', 18),
+        ('Thursday', '10:00 AM', '10:00 PM', 18),
+        ('Friday', '10:00 AM', '10:00 PM', 18),
+        ('Saturday', '11:00 AM', '11:00 PM', 18),
+        ('Sunday', '11:00 AM', '11:00 PM', 18),
+
+        ('Monday', '09:00 AM', '06:00 PM', 19),
+        ('Tuesday', '09:00 AM', '06:00 PM', 19),
+        ('Wednesday', '09:00 AM', '06:00 PM', 19),
+        ('Thursday', '09:00 AM', '06:00 PM', 19),
+        ('Friday', '09:00 AM', '06:00 PM', 19),
+        ('Saturday', '10:00 AM', '07:00 PM', 19),
+        ('Sunday', '10:00 AM', '07:00 PM', 19),
+
+        ('Monday', '09:00 AM', '05:00 PM', 20),
+        ('Tuesday', '09:00 AM', '05:00 PM', 20),
+        ('Wednesday', '09:00 AM', '05:00 PM', 20),
+        ('Thursday', '09:00 AM', '05:00 PM', 20),
+        ('Friday', '09:00 AM', '05:00 PM', 20),
+        ('Saturday', '10:00 AM', '06:00 PM', 20),
+        ('Sunday', '10:00 AM', '06:00 PM', 20),
+
+        ('Monday', '08:00 AM', '08:00 PM', 21),
+        ('Tuesday', '08:00 AM', '08:00 PM', 21),
+        ('Wednesday', '08:00 AM', '08:00 PM', 21),
+        ('Thursday', '08:00 AM', '08:00 PM', 21),
+        ('Friday', '08:00 AM', '08:00 PM', 21),
+        ('Saturday', '09:00 AM', '09:00 PM', 21),
+        ('Sunday', '09:00 AM', '09:00 PM', 21),
+
+        ('Monday', '09:00 AM', '09:00 PM', 22),
+        ('Tuesday', '09:00 AM', '09:00 PM', 22),
+        ('Wednesday', '09:00 AM', '09:00 PM', 22),
+        ('Thursday', '09:00 AM', '09:00 PM', 22),
+        ('Friday', '09:00 AM', '09:00 PM', 22),
+        ('Saturday', '10:00 AM', '10:00 PM', 22),
+        ('Sunday', '10:00 AM', '10:00 PM', 22);
 
 
 
