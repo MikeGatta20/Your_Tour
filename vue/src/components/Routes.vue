@@ -1,10 +1,13 @@
 <template>
-    <div>
-        <button v-on:click="generateRoute" type="submit">Generate Route</button>
+  <div id="generate-button">
+  <button v-on:click="generateRoute" type="submit">Generate Route</button>
+  </div>  
+  <div id="generate-route">
         <div id="map"></div>
         <div id="panel"></div>
-        <p>your route not really</p>
+       
     </div>
+    
 </template>
 
 <script>
@@ -144,6 +147,21 @@ export default {
 
 #panel {
   grid-area: directions;
+}
+
+#generate-route {
+  display: flex;
+  padding-left: 50px;
+
+}
+
+#map {
+  
+justify-content: right;
+}
+
+#generate-button {
+  padding-left: 48px;
 }
 
 </style>

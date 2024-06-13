@@ -71,16 +71,19 @@
         </li>
       </ul>
     </div>
-    <div>
+    <div class="address-and-date">
+    <div id="starting-address">
       <p>Your starting point: 1228 Sherbrooke St W, Montreal, Quebec</p>
     </div>
     <label >Please select a date</label>
     <input type="date">
     <ul>
+      <h3 id="selected-landmarks">Your Selected Landmarks: </h3>
       <li v-for="(landmark, landmarkIndex) in landmarksItinerary" :key="landmarkIndex">
         <p> {{ landmark.landmark.landmarkName }}</p>
       </li>
     </ul>
+    </div>
     <Routes :landmarksItinerary="landmarksItinerary"></Routes>
   </div>
 </template>
@@ -108,7 +111,7 @@ export default {
       startTime: null,
       endTime: null,
       category: null,
-      categoryOptions: ["Museum", "Historic Site", "Park", "Church", "Garden", "Market", "Amusement Park", "Educational Institution", "Shopping", "Stadium","Art"],
+      categoryOptions: ["Museum", "Historic Site", "Park", "Church", "Garden", "Market", "Amusement Park", "Educational Institution", "Shopping", "Sports","Art", "Restaurant"],
       showScheduleIndex: null,
       images: null,
       landmarksItinerary: [],
@@ -367,6 +370,8 @@ export default {
 .thumb-logo{
   text-align: left;
   padding-left: 77px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .itinerary-info{
   text-align: bottom;
@@ -390,4 +395,23 @@ export default {
   
 }
 
+.schedule {
+  padding-right: 230px;
+}
+
+.address-and-date {
+  padding-top: 50px;
+  padding-left: 50px;
+  font-size: 25px;
+}
+
+#selected-landmarks {
+  padding-top: 30px;
+  padding-right: 50px;
+}
+
+#starting-address {
+  font-weight: bold;
+  font-size: 35px;
+}
 </style>

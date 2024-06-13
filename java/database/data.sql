@@ -16,7 +16,7 @@ VALUES
     ('McGill University', '845 Sherbrooke St W, Montreal, QC H3A 0G4', 'Educational Institution', 'McGill University is a public research university in Montreal, renowned for its medical school and other programs.', '/mcgill_university.jpg', 0.7),
     ('Eaton Centre Montreal', '705 Rue Sainte-Catherine O, Montreal, QC H3B 4G5', 'Shopping', 'Eaton Centre Montreal is a large shopping mall in downtown Montreal, featuring a variety of shops and restaurants.', '/eaton_centre.jpg', 1.2),
     ('The Montreal Museum of Contemporary Art', '185 Sainte-Catherine St W, Montreal, QC H2X 3X5', 'Museum', 'The Montreal Museum of Contemporary Art is a contemporary art museum in Montreal.', '/museum_of_contemporary_art.jpg', 1.5),
-    ('Bell Centre', '1909 Avenue des Canadiens-de-Montréal, Montreal, QC H4B 5G0', 'Stadium', 'The Bell Centre is a sports and entertainment complex in Montreal, best known as the home of the Montreal Canadiens.', '/bell_centre.jpg', 0.9),
+    ('Bell Centre', '1909 Avenue des Canadiens-de-Montréal, Montreal, QC H4B 5G0', 'Sports', 'The Bell Centre is a sports and entertainment complex in Montreal, best known as the home of the Montreal Canadiens.', '/bell_centre.jpg', 0.9),
     ('Mount Royal Chalet', '1196 Voie Camillien-Houde, Montreal, QC H3H 1A1', 'Park', 'Mount Royal Chalet offers stunning views of the city of Montreal and is a popular spot for tourists and locals alike.', '/mount_royal_chalet.jpg', 2.0),
     ('Lachine Canal', 'Canal-de-Lachine, Montreal, QC', 'Park', 'The Lachine Canal is a canal passing through the southwestern part of the Island of Montreal, Quebec, Canada.', '/lachine_canal.jpg', 3.2),
     ('Pointe-à-Callière Museum', '350 Place Royale, Montreal, QC H2Y 3Y5', 'Museum', 'Pointe-à-Callière Museum is a museum of archaeology and history in Old Montreal, Quebec, Canada.', '/pointe_a_calliere_museum.jpg', 4.2),
@@ -26,7 +26,15 @@ VALUES
     ('Château Ramezay', '280 Notre-Dame St E, Montreal, QC H2Y 1C5', 'Historic Site', 'Château Ramezay is a museum and historic building in Old Montreal, Quebec, Canada.', '/chateau_ramezay.jpg', 4.1),
     ('Cité Mémoire', '375 Rue Notre-Dame E, Montreal, QC H2Y 1C9', 'Art', 'Cité Mémoire is an outdoor multimedia project in Old Montreal, Quebec, Canada.', '/cite_memoire.jpg', 4.0),
     ('Jardin Botanique de Montréal', '4101 Rue Sherbrooke E, Montreal, QC H1X 2B2', 'Garden', 'Jardin Botanique de Montréal is a large botanical garden in Montreal, Quebec, Canada.', '/jardin_botanique.jpg', 4.9),
-    ('Musée des beaux-arts de Montréal', '1380 Rue Sherbrooke O, Montreal, QC H3G 1J5', 'Museum', 'Musée des beaux-arts de Montréal is an art museum in Montreal, Quebec, Canada.', '/musee_des_beaux_arts.jpg', 4.7);
+    ('Musée des beaux-arts de Montréal', '1380 Rue Sherbrooke O, Montreal, QC H3G 1J5', 'Museum', 'Musée des beaux-arts de Montréal is an art museum in Montreal, Quebec, Canada.', '/musee_des_beaux_arts.jpg', 4.7),
+     ('Montreal Clock Tower', '1 Rue de la Commune E, Montreal, QC H2Y 0B1', 'Historic Site', 'Montreal Clock Tower is a clock tower located in the Old Port of Montreal, Quebec, Canada.', '/montreal_clock_tower.jpg', 4.1),
+     ('Canadian Centre for Architecture', '1920 Rue Baile, Montreal, QC H3H 2S6', 'Museum', 'Canadian Centre for Architecture is a museum and research center in Montreal, Quebec, Canada, dedicated to architecture.', '/cca_montreal.jpg', 4.8),
+     ('Montreal Holocaust Memorial Centre', '5151 Chemin de la Côte-Sainte-Catherine, Montreal, QC H3W 1M6', 'Museum', 'Montreal Holocaust Memorial Centre is a museum in Montreal, Quebec, Canada, dedicated to Holocaust education and remembrance.', '/holocaust_memorial_centre.jpg', 4.5),
+     ('Saint-Viateur Bagel', '263 Rue Saint Viateur O, Montreal, QC H2V 1Y1', 'Restaurant', 'Saint-Viateur Bagel is a famous bagel bakery in Montreal, Quebec, Canada, known for its traditional Montreal-style bagels.', '/saint_viateur_bagel.jpg', 4.9),
+     ('Montreal Olympic Stadium', '4141 Pierre-de Coubertin Ave, Montreal, QC H1V 3N7', 'Sports', 'Montreal Olympic Stadium is a multi-purpose stadium in Montreal, Quebec, Canada, built for the 1976 Summer Olympics.', '/montreal_olympic_stadium.jpg', 4.2),
+     ('Montreal Impact', '4750 Sherbrooke St E, Montreal, QC H1V 3S8', 'Sports', 'Montreal Impact is a professional soccer club based in Montreal, Quebec, Canada.', '/montreal_impact.jpg', 4.7);
+
+
 
 INSERT INTO schedule (day_of_week, open_time, close_time, landmark_id)
 VALUES
@@ -134,7 +142,7 @@ VALUES
     ('Saturday', '03:00 PM', '11:00 PM', 13),
     ('Sunday', '03:00 PM', '11:00 PM', 13),
 
-    ('Monday', '10:00 AM', '08:00 PM', 14),
+        ('Monday', '10:00 AM', '08:00 PM', 14),
         ('Tuesday', '10:00 AM', '08:00 PM', 14),
         ('Wednesday', '10:00 AM', '08:00 PM', 14),
         ('Thursday', '10:00 AM', '08:00 PM', 14),
@@ -204,7 +212,56 @@ VALUES
         ('Thursday', '09:00 AM', '09:00 PM', 22),
         ('Friday', '09:00 AM', '09:00 PM', 22),
         ('Saturday', '10:00 AM', '10:00 PM', 22),
-        ('Sunday', '10:00 AM', '10:00 PM', 22);
+        ('Sunday', '10:00 AM', '10:00 PM', 22),
+
+        ('Monday', '07:00 AM', '07:00 PM', 23),
+        ('Tuesday', '07:00 AM', '07:00 PM', 23),
+        ('Wednesday', '07:00 AM', '07:00 PM', 23),
+        ('Thursday', '07:00 AM', '07:00 PM', 23),
+        ('Friday', '07:00 AM', '07:00 PM', 23),
+        ('Saturday', '08:00 AM', '08:00 PM', 23),
+        ('Sunday', '08:00 AM', '08:00 PM', 23),
+
+        ('Monday', '10:00 AM', '10:00 PM', 24),
+        ('Tuesday', '10:00 AM', '10:00 PM', 24),
+        ('Wednesday', '10:00 AM', '10:00 PM', 24),
+        ('Thursday', '10:00 AM', '10:00 PM', 24),
+        ('Friday', '10:00 AM', '10:00 PM', 24),
+        ('Saturday', '11:00 AM', '11:00 PM', 24),
+        ('Sunday', '11:00 AM', '11:00 PM', 24),
+
+        ('Monday', '09:00 AM', '06:00 PM', 25),
+        ('Tuesday', '09:00 AM', '06:00 PM', 25),
+        ('Wednesday', '09:00 AM', '06:00 PM', 25),
+        ('Thursday', '09:00 AM', '06:00 PM', 25),
+        ('Friday', '09:00 AM', '06:00 PM', 25),
+        ('Saturday', '10:00 AM', '07:00 PM', 25),
+        ('Sunday', '10:00 AM', '07:00 PM', 25),
+
+        ('Monday', '09:00 AM', '05:00 PM', 26),
+        ('Tuesday', '09:00 AM', '05:00 PM', 26),
+        ('Wednesday', '09:00 AM', '05:00 PM', 26),
+        ('Thursday', '09:00 AM', '05:00 PM', 26),
+        ('Friday', '09:00 AM', '05:00 PM', 26),
+        ('Saturday', '10:00 AM', '06:00 PM', 26),
+        ('Sunday', '10:00 AM', '06:00 PM', 26),
+
+        ('Monday', '08:00 AM', '08:00 PM', 27),
+        ('Tuesday', '08:00 AM', '08:00 PM', 27),
+        ('Wednesday', '08:00 AM', '08:00 PM', 27),
+        ('Thursday', '08:00 AM', '08:00 PM', 27),
+        ('Friday', '08:00 AM', '08:00 PM', 27),
+        ('Saturday', '09:00 AM', '09:00 PM', 27),
+        ('Sunday', '09:00 AM', '09:00 PM', 27),
+
+        ('Monday', '09:00 AM', '09:00 PM', 28),
+        ('Tuesday', '09:00 AM', '09:00 PM', 28),
+        ('Wednesday', '09:00 AM', '09:00 PM', 28),
+        ('Thursday', '09:00 AM', '09:00 PM', 28),
+        ('Friday', '09:00 AM', '09:00 PM', 28),
+        ('Saturday', '10:00 AM', '10:00 PM', 28),
+        ('Sunday', '10:00 AM', '10:00 PM', 28);
+
 
 
 
