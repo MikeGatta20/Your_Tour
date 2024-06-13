@@ -23,7 +23,7 @@
       </div>
     </form>
     <div class="landmarks-box">
-      <ul>
+      <ul id="landmarks-box-list">
         <li v-for="(landmark, index) in filteredLandmarks" :key="landmark.landmark.landmarkId">
           <div class="landmark-item">
             <div class="landmark-info">
@@ -264,10 +264,10 @@ export default {
 .landmarks-box {
   max-height: 800px; /* Adjust the height as needed */
   overflow-y: auto;
-  border: 1px solid #ccc;
   padding: 10px;
   margin-top: 10px;
   width: 80%;
+  
 }
 .landmark-item {
   display: flex; /* Use flexbox for layout */
@@ -276,6 +276,8 @@ export default {
   padding: 10px 0;
   margin-bottom: 10px;
   background-color: rgba(236, 233, 233, 0.87);
+  
+  border-radius: 50px;
 }
 
 .landmark-info {
@@ -301,6 +303,7 @@ export default {
 .landmark-images {
   height: 300px;
   width: 300px;
+  border-radius: 25px;
   justify-items: left;
 }
  .like {
@@ -314,8 +317,13 @@ export default {
     width: 60px; 
   }
   .search-filters > div {
+  width: 33%;
+  margin: auto;
+  background-color: rgba(236, 233, 233, 0.87);
   text-align: center;
   margin-bottom: 20px; /* Add some bottom margin for spacing */
+  padding-bottom: 15px;
+  border-radius: 20px;
 }
 
 /* Style the input and select elements */
@@ -357,6 +365,7 @@ export default {
 }
 .category-distance{
   font-size: 22px;
+  
 }
 .landmark-header{
   line-height: 50px;
@@ -413,5 +422,9 @@ export default {
 #starting-address {
   font-weight: bold;
   font-size: 35px;
+}
+
+#landmarks-box-list {
+  list-style-type: none;
 }
 </style>

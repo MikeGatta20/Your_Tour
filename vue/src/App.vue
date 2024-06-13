@@ -11,6 +11,9 @@
 <style>
 #nav a {
   color: black;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 </style>
