@@ -1,6 +1,6 @@
 <template>
   <div id="generate-button">
-  <button v-on:click="generateRoute" type="submit">Generate Route</button>
+  <button class ="route-button" v-on:click="generateRoute" type="submit">Generate Route</button>
   </div>  
   <div id="generate-route">
         <div id="map"></div>
@@ -138,15 +138,18 @@ export default {
 #map {
   grid-area: map;
   width: 650px;
-  height: 400px;
+  height: 650px;
   padding: 25px;
   margin: 25px;
+  justify-content: right;
 }
 
 
 
 #panel {
   grid-area: directions;
+  background-color: rgba(236, 233, 233, 0.87);
+  font-size: 25px;
 }
 
 #generate-route {
@@ -155,13 +158,27 @@ export default {
 
 }
 
-#map {
-  
-justify-content: right;
-}
-
 #generate-button {
-  padding-left: 48px;
+  text-align: center;
+  margin-top: 10px;
+  padding-bottom: 20px;
+
+}
+.route-button{
+  background-color: #e96f6f;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border:none;
+  font-weight: bold;
+  height: 100px;
+  width: 300px;
 }
 
 </style>

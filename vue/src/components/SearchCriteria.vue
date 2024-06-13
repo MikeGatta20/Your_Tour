@@ -5,7 +5,7 @@
       <div class="search-filters"> 
       <div id="travel-distance">
         <div class="label-text">
-        <label for="distance">How many miles would you like to travel? </label>
+        <label for="distance">How many kilometers would you like to travel? </label>
         </div>
         <input type="number" name="distance" max="20" min="0" step="0.1" v-model.number="distance">
       </div>
@@ -17,7 +17,7 @@
           <option v-for="(category, index) in categoryOptions" :key="index">{{ category }}</option>
         </select>
         <div>
-        <button class="btn btn-primary" type="submit">Search Landmarks</button>
+        <button id ="search-button" type="submit">Search Landmarks</button>
       </div>
       </div>
       </div>
@@ -267,6 +267,7 @@ export default {
   padding: 10px;
   margin-top: 10px;
   width: 80%;
+  margin-bottom: 50px;
   
 }
 .landmark-item {
@@ -276,7 +277,6 @@ export default {
   padding: 10px 0;
   margin-bottom: 10px;
   background-color: rgba(236, 233, 233, 0.87);
-  
   border-radius: 50px;
 }
 
@@ -401,17 +401,35 @@ export default {
 }
 
 .schedule-button {
-  
+
+   background-color: #e96f6f;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border:none;
+  font-weight: bold;
 }
 
 .schedule {
   padding-right: 230px;
+  font-size: 24px;
 }
 
 .address-and-date {
-  padding-top: 50px;
-  padding-left: 50px;
   font-size: 25px;
+  background-color: rgba(236, 233, 233, 0.87);
+  margin-top: 50px;
+  margin:auto;
+  width: 50%;
+  padding: 50px;
+  border-radius: 20px;
+
 }
 
 #selected-landmarks {
@@ -426,5 +444,19 @@ export default {
 
 #landmarks-box-list {
   list-style-type: none;
+}
+#search-button{
+  background-color: #e96f6f;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border:none;
+  font-weight: bold;
 }
 </style>
