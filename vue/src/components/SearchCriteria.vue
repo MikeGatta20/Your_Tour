@@ -1,5 +1,5 @@
 <template>
- 
+ <!--test-->
   <div>
     <form @submit.prevent="searchLandmarks">
       <div class="search-filters"> 
@@ -262,7 +262,7 @@ export default {
 
 <style scoped>
 .landmarks-box {
-  max-height: 800px; /* Adjust the height as needed */
+  max-height: 800px; 
   overflow-y: auto;
   padding: 10px;
   margin-top: 10px;
@@ -271,8 +271,8 @@ export default {
   
 }
 .landmark-item {
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Center items vertically */
+  display: flex; 
+  align-items: center; 
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
   margin-bottom: 10px;
@@ -321,35 +321,35 @@ export default {
   margin: auto;
   background-color: rgba(236, 233, 233, 0.87);
   text-align: center;
-  margin-bottom: 20px; /* Add some bottom margin for spacing */
+  margin-bottom: 20px; 
   padding-bottom: 15px;
   border-radius: 20px;
 }
 
-/* Style the input and select elements */
+
 .search-filters input[type="number"],
 .search-filters select {
-  width: 30%; /* Make the input and select elements fill the container */
-  padding: 10px; /* Add padding for better appearance */
-  border: 1px solid #ccc; /* Add a border */
-  border-radius: 5px; /* Add rounded corners */
-  margin-bottom: 10px; /* Add bottom margin for spacing */
+  width: 30%; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  margin-bottom: 10px; 
 }
 
-/* Style the submit button */
+
 .search-filters button {
-  width: 30%; /* Make the button fill the container */
-  padding: 10px; /* Add padding for better appearance */
-  background-color: #007bff; /* Change background color */
-  color: #fff; /* Change text color */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Add rounded corners */
-  cursor: pointer; /* Change cursor on hover */
-  transition: background-color 0.3s ease; /* Add smooth transition */
+  width: 30%; 
+  padding: 10px; 
+  background-color: #007bff; 
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
 }
 
 .search-filters button:hover {
-  background-color: #0056b3; /* Darken background color on hover */
+  background-color: #0056b3; 
 }
 .label-text {
   font-size: 35px;
@@ -453,7 +453,7 @@ export default {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 25px;
+  font-size: 15px;
   margin: 4px 2px;
   cursor: pointer;
   border:none;
